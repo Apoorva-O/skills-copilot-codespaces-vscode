@@ -1,13 +1,16 @@
-//create web server
-var express = require('express');
-var app = express();
+//Create web server
+//Create a new web server using Express.js
+//Create a new web server using Express.js
+const express = require('express');
+const app = express();
+const port = 3000;
 
-//create server
-var http = require('http');
-var server = http.createServer(app);
+//Define the route for comments
+app.get('/comments', (req, res) => {
+  res.send('Comments route');
+});
 
-//create socket
-var io = require('socket.io').listen(server);
-
-//create array to store comments
-var comments
+//Start the server
+app.listen(port, () => {
+  console.log(`Server listening at http://localhost:${port}`);
+});
